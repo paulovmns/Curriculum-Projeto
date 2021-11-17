@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Dados</title>
+</head>
+<body>
+
+    <h3>Jogador 1</h3>
+    <button onclick="dado1()">Jogar Dado 1</button><br><br>
+
+    <h1 id="play1"></h1>
+
+    <h3>Jogador 2</h3>
+    <button onclick="dado2()">Jogar Dado 2</button><br><br>
+
+    <h1 id="play2"></h1>
+
+    <h2 id="result"></h1><br><br>
+
+    <h1 id="final"></h1><br><br><br><br>
+
+    <button onclick="reiniciar()">Reiniciar Jogo</button>
+
+    <script>
+        var vez = 1;
+        var resultado1 = 0;
+        var resultado2 = 0;
+        var rodada = 0;
+        var play1win = 0;
+        var play2win = 0;
+        
+        function dado1() {
+            if (vez % 2 != 0) {
+                vez++;
+                resultado1 = Math.floor(Math.random() * 6) + 1;
+                document.getElementById("play1").innerHTML = resultado1;
+                document.getElementById("play2").innerHTML = "";
+                document.getElementById("result").innerHTML = "";
+                document.getElementById("final").innerHTML = "";
+            } else { 
+                alert("ERRO: Quem deve jogar é o Jogador 2.");
+            }
+        }
+
+        function dado2() {
+            if (vez % 2 == 0) {
+                vez++;
+                rodada++;
+                resultado2 = Math.floor(Math.random() * 6) + 1;
+                document.getElementById("play2").innerHTML = resultado2;
+                     if (resultado1 > resultado2) {
+                        document.getElementById("result").innerHTML = "FIM DA RODADA #" + (rodada) + ": Jogador 1 Venceu!";
+                        play1win++;
+                    } else if (resultado2 > resultado1) {
+                        document.getElementById("result").innerHTML = "FIM DA RODADA #" + (rodada) + ": Jogador 2 Venceu!";
+                        play2win++;
+                    } else {
+                        document.getElementById("result").innerHTML = "FIM DA RODADA #" + (rodada) + ": EMPATE.";
+                    }
+                
+                    if (rodada == 10) {
+                         if (play1win > play2win) {
+                            document.getElementById("final").innerHTML = "---------- VENCEDOR FINAL: Jogador 1 (" + play1win + " x " + play2win + ")" + " ----------";
+                        } else if (play2win > play1win) {
+                            document.getElementById("final").innerHTML = "---------- VENCEDOR FINAL: Jogador 2 (" + play2win + " x " + play1win + ")" + " ----------";
+                        } else {
+                            document.getElementById("final").innerHTML = "---------- NÃO HOUVE VENCEDORES = EMPATE GERAL (" + play1win + " x " + play2win + ")" + " ----------";
+                        }
+                        vez = 1;
+                        resultado1 = 0;
+                        resultado2 = 0;
+                        rodada = 0;
+                        play1win = 0;
+                        play2win = 0;
+                    }
+            } 
+            else { 
+                    alert("ERRO: Quem deve jogar é o Jogador 1.");
+                }
+        }
+
+        function reiniciar() {
+            alert("JOGO INTERROMPIDO! Reiniciando para Rodada #1...");
+            vez = 1;
+            resultado1 = 0;
+            resultado2 = 0;
+            rodada = 0;
+            play1win = 0;
+            play2win = 0;
+            document.getElementById("play1").innerHTML = "";
+            document.getElementById("play2").innerHTML = "";
+            document.getElementById("result").innerHTML = "";
+            document.getElementById("final").innerHTML = "";
+        }
+    </script>
+
+</body>
+</html>

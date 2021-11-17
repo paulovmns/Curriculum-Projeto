@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Times;
+  }
+  
+  body {
+    min-height: 100vh;
+    background-color: #fff;
+  }
+  
+  .side-navbar {
+    width: 240px;
+    height: 100%;
+    position: fixed;
+    margin-left: -320px;
+    background-color: #161310;
+  }
+  
+  .nav-link:active,
+  .nav-link:focus,
+  .nav-link:hover {
+    background-color: #ffffff26;
+    color: orange;
+    text-decoration: none;
+  }
+  
+  .nav-link {
+     color: yellow;
+  }
+  
+  .active-nav {
+    margin-left: 0;
+  }
+  
+  .active-cont {
+    margin-left: 240px;
+  }
+  
+  #menu-btn {
+    background-color: #100901;
+    color: #fff;
+    margin-left: -66px;
+  }
+  
+  .my-container input {
+    border-radius: 2rem;
+    padding: 2px 20px;
+  }
+  
+  #formularioTodo {
+    padding: 10px;
+    width: 590px;
+    margin: 20px;
+  }
+  
+  #enviadaOK {
+    font-size: 15px;
+    font-weight: bolder;
+  }
+  
+  .rotulo {
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  img {
+    border-radius: 50%;
+    height: 300px;
+    width: 400px;
+  }
+
+  hr.rounded {
+    border-top: 8px solid #bbb;
+    border-radius: 5px;
+  }
+  
+  #botao {
+    background-color: lightslategray;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 14px;
+    margin: 10px 10px;
+    cursor: pointer;
+    border: none;
+    color: white;
+  }
